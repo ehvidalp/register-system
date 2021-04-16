@@ -1,0 +1,164 @@
+<div
+  [class.container]="(isMobile | async) === false"
+  [class.container-mobile]="(isMobile | async) === true"
+>
+  <!------------------------------------------------------------>
+  <!------------------------------------------------------------>
+  <div
+  (clickOutside)="closeMenu()"
+    [class.navbar]="(isMobile | async) === false"
+    [class.navbar-mobile]="(isMobile | async) === true"
+    [class.d-none]="(isMobile | async) === true && !showMenu"
+  >
+    <div
+      [class.animation-fadeInLeft]="showMenu"
+      [class.animation-fadeInRight]="!showMenu"
+      [class.nav-mobile]="(isMobile | async) === true && showMenu"
+      class="nav"
+    >
+      <picture class="mt-3" (click)="goHome(); showMenu = false">
+        <img
+          src="assets/img/acatenango-logo-vertical.svg"
+          alt="Volcan Acatenango"
+          width="100px"
+        />
+      </picture>
+      <div class="mt-3">
+        <a
+          routerLink="ruv"
+          routerLinkActive="btn-nav-active"
+          (click)="showMenu = false"
+          class="btn-nav"
+        >
+          <picture>
+            <img
+              [src]="
+                menuItems.ruv
+                  ? 'assets/img/form-dark.png'
+                  : 'assets/img/form.png'
+              "
+              width="40px"
+            />
+          </picture>
+          <label>RUV</label>
+        </a>
+        <a
+          routerLink="visitor-entry"
+          routerLinkActive="btn-nav-active"
+          (click)="showMenu = false"
+          class="btn-nav"
+        >
+          <picture>
+            <img
+              [src]="
+                menuItems.visitorEntry
+                  ? 'assets/img/ingreso-dark.png'
+                  : 'assets/img/ingreso.png'
+              "
+              width="40px"
+            />
+          </picture>
+          <label>Ingreso</label>
+          <label>de grupos</label>
+        </a>
+        <!-- <a
+          routerLink="visitor-egress"
+          (click)="showMenu = false"
+          routerLinkActive="btn-nav-active"
+          class="btn-disabled"
+        >
+          <picture>
+            <img
+              [src]="
+                menuItems.visitorEgress
+                  ? ' assets/img/salida-dark.png'
+                  : ' assets/img/salida.png'
+              "
+              width="40px"
+            />
+          </picture>
+          <label>Salida</label>
+          <label>de grupos</label>
+        </a> -->
+      </div>
+    </div>
+  </div>
+  <!------------------------------------------------------------>
+  <!------------------------------------------------------------>
+  <div
+    [class.content]="(isMobile | async) === false"
+    [class.content-mobile]="(isMobile | async) === true"
+  >
+    <div
+      class="w-100 d-flex f-row f-align-center font-worksans-semibold mt-1 navbar-stick"
+    >
+      <div class="w-50 ml-1 d-flex f-align-center">
+        <button
+          type="button"
+          class="btn-toogle mr-1"
+          *ngIf="(isMobile | async) === true && !showMenu"
+          (click)="openMenu()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            fill="black"
+            class="bi bi-list"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+            />
+          </svg>
+        </button>
+        <svg
+          *ngIf="!showMenu"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-person-circle"
+          viewBox="0 0 16 16"
+        >
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+          <path
+            fill-rule="evenodd"
+            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+          />
+        </svg>
+        <label *ngIf="!showMenu" class="ml-1 name-person">{{ userName }}</label>
+      </div>
+      <div
+        [class.w-100]="(isMobile | async) === true && showMenu"
+        class="w-50 d-flex f-align-center f-j-end mr-2"
+      >
+        <button
+          class="btn-logout d-flex f-align-center font-worksans-semibold"
+          (click)="logout()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="#c11111"
+            class="bi bi-power"
+            viewBox="0 0 16 16"
+          >
+            <path d="M7.5 1v7h1V1h-1z" />
+            <path
+              d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"
+            />
+          </svg>
+          <span class="ml-1">Salir</span>
+        </button>
+      </div>
+    </div>
+    <!------------------------------------------------------------>
+    <!------------------------------------------------------------>
+    <div class="app-render">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

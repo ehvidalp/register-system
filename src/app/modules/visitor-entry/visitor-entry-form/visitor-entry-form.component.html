@@ -1,0 +1,44 @@
+<div class="w-full pl-3 pr-3 pb-2">
+  <h1 class="title pt-2">Registro de ingreso de grupos</h1>
+  <hr class="hr-title">
+  <form [formGroup]="visitorEntryForm!" (ngSubmit)="registerVisitorEntry()" class="mt-2 w-100 form-grid">
+    <div>
+      <div class="input-form">
+        <label class="label-form">Tour operadora responsable del grupo</label>
+        <input type="text" formControlName="Agency">
+      </div>
+      <div class="input-form">
+        <label class="label-form">Nombre guía responsable del grupo</label>
+        <input type="text" formControlName="Guide">
+      </div>
+      <div class="input-form">
+        <label class="label-form">Turista local</label>
+        <input type="number" formControlName="Locals">
+      </div>
+      <div class="input-form">
+        <label class="label-form">Estudiantes</label>
+        <input type="number" formControlName="Students">
+      </div>
+      <div class="input-form">
+        <label class="label-form">Turista nacional</label>
+        <input type="number" formControlName="Nationals">
+      </div>
+      <div class="input-form">
+        <label class="label-form">Turista internacional</label>
+        <input type="number" formControlName="Foreigns">
+      </div>
+      <hr class="hr-form">
+      <div class="input-form mt-2">
+        <label class="label-form">Responsable de ingreso de información</label>
+        <input type="text" formControlName="nameUser">
+      </div>
+      <div class="w-100">
+        <button [disabled]="!visitorEntryForm?.valid" type="submit" class="w-90 btn-primary">
+          <span *ngIf="!loading">Guardar</span>
+          <div *ngIf="loading" class="spinner"></div>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<toastr></toastr>

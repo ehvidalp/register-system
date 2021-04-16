@@ -1,0 +1,6 @@
+<div [class.toastr-success]="isSuccess === true"
+     [class.toastr-error]="isSuccess === false"
+     [class.d-none]="isSuccess === undefined">
+  <span *ngIf="isSuccess === true">¡Guardado exitosamente!</span>
+  <span *ngIf="isSuccess === false">No se puedo Guardar.</span>
+</div>

@@ -1,0 +1,32 @@
+<div class="w-full pl-3 pr-3 pb-2 h-84vh">
+  <h1 class="title pt-2">Registro de salida de grupos</h1>
+  <hr class="hr-title">
+  <form [formGroup]="visitorEgressForm!" (ngSubmit)="registerEgressVisitor()" class="mt-2 w-100 form-grid">
+    <div>
+      <h1 class="sub-title">Cantidad de gente en el parque</h1>
+      <h1 class="persons">290</h1>
+      <div class="input-form">
+        <label class="label-form">Grupo que sale</label>
+        <select  formControlName="outputGroup" aria-placeholder="-- Seleccionar --">
+          <option value="" selected disabled hidden>
+            -- Seleccionar --
+          </option>
+          <option *ngFor="let item of outGroupData" [value]="item">{{item}}</option>
+        </select>
+      </div>
+      <div class="input-form">
+        <label class="label-form">¿Dónde están saliendo?</label>
+        <select  formControlName="whereIsComingOut" aria-placeholder="-- Seleccionar --">
+          <option value="" selected disabled hidden>
+            -- Seleccionar --
+          </option>
+          <option *ngFor="let item of whereIsComingOutData" [value]="item">{{item}}</option>
+        </select>
+      </div>
+      <div class="w-100">
+        <button [disabled]="!visitorEgressForm?.valid" type="submit" class="w-90 btn-primary">Guardar</button>
+      </div>
+    </div>
+  </form>
+</div>
+<toastr ></toastr>

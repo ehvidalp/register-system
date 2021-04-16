@@ -1,0 +1,75 @@
+.content {
+  background-color: var(--main-bg-color);
+  width: 100%;
+  height: 75vh;
+  min-height: 420px;
+}
+
+.content-img{
+  height: 25vh;
+  min-height: 130px;
+  // min-width: 100px;
+  background: var(--ligth-color);
+  img{
+    margin: 0 3rem;
+  }
+}
+
+div.form{
+  max-width: 400px;
+  height: 250px;
+}
+
+.message-validators{
+  height: 30px;
+}
+
+input{
+  height: 35px;
+  font-size: 1rem;
+}
+
+p{
+  margin-top: 0;
+  font-size: 0.8rem;
+}
+
+button{
+  width: 200px;
+  padding: 0.6rem 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 767.98px) {
+
+
+  div.form{
+    width: 90%;
+  }
+
+  .content-img{
+    img{
+      width: 100px;
+    }
+  }
+
+ }
+
+ .spinner-login{
+  border: 4px solid rgb(255, 255, 255,);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border-left-color: #57F692;
+  animation: spin 1s linear infinite;
+  margin-left: 5.5rem;
+}
+
+ @keyframes spin {
+   0%{
+     transform: rotate(0deg);
+   }
+   100%{
+     transform: rotate(360deg);
+   }
+ }

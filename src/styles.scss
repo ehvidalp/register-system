@@ -1,0 +1,538 @@
+/* You can add global styles to this file, and also import other style files */
+// variables
+:root {
+  --main-bg-color: #282828;
+  --ligth-bg-color: #eaeaea;
+  --ligth-color: #ffffff;
+  --main-color: #30e291;
+  --secondary-color: #333333;
+  --alert-color: #c11111;
+  --texts-color: #282828;
+  --hover-color: #606060;
+  --disabled-color: #d6d6d6;
+}
+
+// fonts
+@font-face {
+  font-family: worksans-bold;
+  src: url("/assets/fonts/WorkSans-Bold.otf");
+}
+
+@font-face {
+  font-family: worksans;
+  src: url("/assets/fonts/WorkSans-Regular.otf");
+}
+
+@font-face {
+  font-family: worksans-semibold;
+  src: url("/assets/fonts/WorkSans-SemiBold.otf");
+}
+
+.font-worksans {
+  font-family: worksans;
+}
+
+.font-worksans-semibold {
+  font-family: worksans-semibold;
+}
+
+.font-worksans-bold {
+  font-family: worksans-bold;
+}
+
+// general
+
+html,body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--ligth-bg-color);
+}
+
+.ligth-color {
+  color: var(--ligth-color);
+}
+
+.alert-color {
+  color: var(--alert-color);
+}
+
+.h-20{
+  height: 20%;
+}
+
+.h-40{
+  height: 40%;
+}
+
+.h-60{
+  height: 60%;
+}
+
+.h-80{
+  height: 60%;
+}
+
+.h-100{
+  height: 100%;
+}
+
+.h-84vh{
+  height: 84vh;
+}
+
+.h-max-auto{
+  max-height: auto;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.mt-1{
+  margin-top: 1rem;
+}
+
+.-mt-2{
+  margin-top: -2rem;
+}
+
+.-mt-3{
+  margin-top: -3rem;
+}
+
+.mb-0{
+  margin-bottom: 0;
+}
+
+.-mb-3{
+  margin-bottom: -3rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
+.mb-5 {
+  margin-bottom: 5rem;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-3 {
+  margin-top: 3rem;
+}
+
+.mt-4 {
+  margin-top: 4rem;
+}
+
+.mt-5 {
+  margin-top: 5rem;
+}
+
+.ml-1 {
+  margin-left: 1rem;
+}
+
+.ml-2 {
+  margin-left: 2rem;
+}
+
+.ml-3 {
+  margin-left: 3rem;
+}
+
+.ml-4 {
+  margin-left: 4rem;
+}
+
+.ml-5 {
+  margin-left: 5rem;
+}
+
+.mr-1 {
+  margin-right: 1rem;
+}
+
+.mr-2 {
+  margin-right: 2rem;
+}
+
+.mr-3 {
+  margin-right: 3rem;
+}
+
+.mr-4 {
+  margin-right: 4rem;
+}
+
+.mr-5 {
+  margin-right: 5rem;
+}
+
+.pt-2{
+  padding-top: 2rem;
+}
+
+.pb-2{
+  padding-bottom: 2rem;
+}
+
+.pl-3{
+  padding-left: 3rem;
+}
+
+.pr-3{
+  padding-right: 3rem;
+}
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.f-align-center {
+  align-items: center;
+}
+
+.f-j-start {
+  justify-content: flex-start;
+}
+
+.f-j-end {
+  justify-content: flex-end;
+}
+
+.f-j-center {
+  justify-content: center;
+}
+
+.f-j-around {
+  justify-content: space-around;
+}
+
+.f-j-between {
+  justify-content: space-between;
+}
+
+.f-row {
+  flex-direction: row;
+}
+
+.f-column {
+  flex-direction: column;
+}
+
+.d-none{
+  display: none;
+}
+
+//buttons
+
+.btn-dark {
+  background-color: var(--main-color);
+  color: var(--texts-color);
+  padding: 5px 1em;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  &:hover {
+    background-color: var(--ligth-bg-color);
+    border: 1px solid var(--hover-color);
+  }
+}
+
+.btn-primary{
+  background-color: var(--main-color);
+  opacity: 70%;
+  color: var(--ligth-color);
+  padding: 5px 1em;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  height: 45px;
+  font-size: 1rem;
+  font-family: worksans-semibold;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: var(--hover-color);
+  }
+
+  &:disabled{
+    background-color: var(--ligth-bg-color);
+    cursor: default;
+  }
+}
+
+.btn-nav{
+  display: flex;
+  flex-direction: column;
+  color: var(--ligth-color);
+  font-family: worksans-semibold;
+  background: transparent;
+  border: 0px;
+  cursor: pointer;
+  outline: none;
+  align-items: center;
+  width: 150px !important;
+  padding: 1rem 0;
+  text-decoration: none;
+  label:first-child{
+    margin-top: 0.5rem;
+  }
+
+  &:hover{
+    background: var(--hover-color);
+  }
+}
+
+.btn-nav-active{
+  background: var(--ligth-bg-color);
+  color: var(--main-bg-color)
+}
+
+//custom css
+
+.title{
+  font-family: worksans-semibold;
+  font-size: 2rem;
+}
+
+.hr-title{
+  margin-top: -1rem;
+  border: 0px;
+  border-bottom: 2px solid var(--main-color);
+}
+
+.input-dark {
+  display: flex;
+  flex-direction: column;
+  font-family: worksans;
+  span {
+    color: var(--main-color);
+  }
+  input {
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    background: var(--main-bg-color);
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+    color: var(--ligth-color);
+    padding: 0.3em 0.5em;
+    outline: none;
+  }
+}
+
+.input-form{
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+
+  label{
+    font-size: 0.9rem;
+    font-family: worksans-semibold;
+  }
+
+  &__title{
+    font-size: 1.1rem !important;
+  }
+
+  input, select{
+    margin-top: 0.5rem;
+    height: 30px;
+    width: 90%;
+    border-radius: 12px;
+    outline: none;
+    border: 1px solid var(--hover-color);
+    font-family: worksans;
+    font-size: 1rem;
+
+    &:focus{
+      border: 1px solid var(--main-color);
+    }
+  }
+
+  input[type="text"]:disabled {
+    background: var(--ligth-bg-color);
+  }
+
+  select{
+    height: 34px;
+    width: 91%;
+  }
+  &:focus-within{
+    color: var(--main-color)
+  }
+
+}
+
+.checkbox-group{
+  display: flex;
+  flex-direction: row;
+  margin-left: 1rem;
+
+  label{
+    font-size: 0.9rem;
+    font-family: worksans;
+    margin-top: 0.5rem;
+  }
+}
+
+.hr-form{
+  border: 0px;
+  border-bottom: 1px dashed var(--main-color);
+}
+
+.form-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(auto, 600px));
+  grid-column-gap: 5rem;
+  grid-row-gap: 2rem;
+}
+
+
+//media querys
+@media screen and (max-width: 600px) {
+  .input-form{
+    input{
+      width: 100%;
+    }
+  }
+
+  select{
+    width: 100% !important;
+  }
+
+}
+
+//animations
+@keyframes fadeInLeft {
+  from {
+      opacity:0;
+      -webkit-transform: translatex(-100px);
+      -moz-transform: translatex(-100px);
+      -o-transform: translatex(-100px);
+      transform: translatex(-100px);
+  }
+  to {
+      opacity:1;
+      -webkit-transform: translatex(0);
+      -moz-transform: translatex(0);
+      -o-transform: translatex(0);
+      transform: translatex(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+      opacity:0;
+      -webkit-transform: translatex(100px);
+      -moz-transform: translatex(100px);
+      -o-transform: translatex(100px);
+      transform: translatex(100px);
+  }
+  to {
+      opacity:1;
+      -webkit-transform: translatex(0);
+      -moz-transform: translatex(0);
+      -o-transform: translatex(0);
+      transform: translatex(0);
+  }
+}
+
+.animation-fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  -moz-animation-name: fadeInRight;
+  -o-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.3s;
+  -moz-animation-duration: 0.3s;
+  -o-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  -o-animation-duration:0.3s;
+  animation-delay: 0.3s;
+}
+
+.animation-fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  -moz-animation-name: fadeInLeft;
+  -o-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.3s;
+  -moz-animation-duration: 0.3s;
+  -o-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  -o-animation-duration:0.3s;
+  animation-delay: 0.3s;
+}
+
+.spinner{
+  border: 4px solid rgb(255, 255, 255,);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border-left-color: #57F692;
+  animation: spins 1s linear infinite;
+}
+
+ @keyframes spins {
+   0%{
+     transform: rotate(0deg);
+   }
+   100%{
+     transform: rotate(360deg);
+   }
+ }

@@ -1,0 +1,234 @@
+<div class="w-full pl-3 pr-3 pb-2">
+  <h1 class="title pt-2">Registro de visitantes</h1>
+  <hr class="hr-title" />
+  <form
+    [formGroup]="ruvForm!"
+    (ngSubmit)="registerVisitor()"
+    class="mt-2 w-100 form-grid"
+  >
+    <!-------------------------------------------------------------------->
+    <!-------------------------------------------------------------------->
+    <div>
+      <div class="input-form">
+        <label class="label-form">Nombre / Name *</label>
+        <input type="text" formControlName="Name" />
+      </div>
+      <div class="input-form">
+        <label class="label-form">Genero / Gender *</label>
+        <select formControlName="Gender" aria-placeholder="-- Seleccionar --">
+          <option value="" selected disabled hidden>-- Seleccionar --</option>
+          <option *ngFor="let gender of genderData" [value]="gender">
+            {{ gender }}
+          </option>
+        </select>
+      </div>
+      <div class="input-form">
+        <label class="label-form">Edad / Age *</label>
+        <input type="number" formControlName="Age" />
+      </div>
+      <div class="input-form">
+        <label class="label-form">Teléfono / Phone *</label>
+        <input type="number" formControlName="Phone" />
+      </div>
+      <div class="input-form">
+        <label class="label-form">Nacionalidad / Nationality *</label>
+        <select
+          formControlName="Nationality"
+          aria-placeholder="-- Seleccionar --"
+        >
+          <option value="" selected disabled hidden>-- Seleccionar --</option>
+          <option
+            *ngFor="let nationality of nationalityData"
+            [value]="nationality"
+          >
+            {{ nationality }}
+          </option>
+        </select>
+      </div>
+      <div class="input-form">
+        <label class="label-form">Especifique / Specify </label>
+        <input type="text" formControlName="otherNationality" />
+      </div>
+      <div class="input-form">
+        <label class="label-form"
+          >País de residencia / Country of residence *</label
+        >
+        <select
+          formControlName="Residence"
+          aria-placeholder="-- Seleccionar --"
+        >
+          <option value="" selected disabled hidden>-- Seleccionar --</option>
+          <option
+            *ngFor="let country of countryResidenceData"
+            [value]="country"
+          >
+            {{ country }}
+          </option>
+        </select>
+      </div>
+      <div class="input-form">
+        <label class="label-form">Especifique / Specify </label>
+        <input type="text" formControlName="otherCountryOfResidence" />
+      </div>
+      <hr class="hr-form" />
+      <div class="input-form mt-2">
+        <label class="input-form__title"
+          >Solo para residentes de Guatemala / Guatemalan residents only</label
+        >
+      </div>
+      <div class="input-form -mt-3">
+        <label class="label-form">Departamento</label>
+        <select
+          formControlName="Department"
+          aria-placeholder="-- Seleccionar --"
+          (change)="enableMunicipaliy()"
+        >
+          <option value="" selected disabled hidden>-- Seleccionar --</option>
+          <option
+            *ngFor="let department of departmentData"
+            [value]="department"
+          >
+            {{ department }}
+          </option>
+        </select>
+      </div>
+      <div class="input-form">
+        <label class="label-form">Municipio</label>
+        <input type="text" formControlName="Municipality" />
+      </div>
+      <hr class="hr-form" />
+      <div class="mt-2 input-form">
+        <label class="label-form"
+          >Motivo de la visita / Reason for the visit *</label
+        >
+        <select
+          formControlName="Reason"
+          aria-placeholder="-- Seleccionar --"
+        >
+          <option value="" selected disabled hidden>-- Seleccionar --</option>
+          <option *ngFor="let reason of reasonVisitData" [value]="reason">
+            {{ reason }}
+          </option>
+        </select>
+      </div>
+      <div class="input-form -mb-3">
+        <label>Actividades a realizar / Activities to do *</label>
+      </div>
+      <div
+        class="checkbox-group"
+        *ngFor="let activity of activitiesToDo; index as i"
+      >
+        <label class="">
+          <input
+            type="checkbox"
+            [formControlName]="activity.formControl!"
+            (change)="activitiesCheckbox()"
+          />
+          &nbsp; {{ activity.Name }} / {{activity.Translation}}
+        </label>
+      </div>
+      <div class="input-form pl-3 mt-1">
+        <label class="label-form">Especifique / Specify </label>
+        <input type="text" formControlName="ActivityExplanation" />
+      </div>
+      <hr class="hr-form" />
+    </div>
+    <!-------------------------------------------------------------------->
+    <!-------------------------------------------------------------------->
+    <div>
+      <div class="input-form">
+        <label class="label-form"
+          >¿Cómo se entero del lugar? / How did you find out about the
+          site</label
+        >
+        <select
+          formControlName="FindOut"
+          aria-placeholder="-- Seleccionar --"
+        >
+          <option value="" selected disabled hidden>-- Seleccionar --</option>
+          <option *ngFor="let item of howDidYouFindData" [value]="item">
+            {{ item }}
+          </option>
+        </select>
+      </div>
+      <div class="input-form">
+        <label class="label-form">Especifique / Specify </label>
+        <input
+          type="text"
+          formControlName="otherFindOut"
+        />
+      </div>
+      <hr class="hr-form" />
+      <div class="input-form mt-2 -mb-3">
+        <label>Viaja con: / Traveling with:</label>
+      </div>
+      <div class="checkbox-group" *ngFor="let travel of travelingWith">
+        <label class="">
+          <input
+            type="checkbox"
+            [formControlName]="travel.formControl!"
+            (change)="travelingCheckbox()"
+          />
+          &nbsp; {{ travel.Name }} / {{travel.Translation}}
+        </label>
+      </div>
+      <div class="input-form pl-3 mt-1">
+        <label class="label-form">Especifique / Specify </label>
+        <input type="text" formControlName="CompanionExplanation" />
+      </div>
+      <hr class="hr-form" />
+      <div class="mt-2 input-form">
+        <label class="label-form"
+          >¿Viaja con agencia? / Traveling whit agency?</label
+        >
+        <select
+          formControlName="Agency"
+          aria-placeholder="-- Seleccionar --"
+        >
+          <option value="" selected disabled hidden>-- Seleccionar --</option>
+          <option *ngFor="let item of yesOrNot" [value]="item.value">
+            {{ item.name }}
+          </option>
+        </select>
+      </div>
+      <div class="input-form">
+        <label class="label-form"
+          >Nombre de la agencia: / Name of the agency
+        </label>
+        <input type="text" formControlName="AgencyName" />
+      </div>
+      <div class="input-form">
+        <label class="label-form"
+          >¿Viaja con guía? / Traveling with a guide?</label
+        >
+        <select
+          formControlName="Guide"
+          aria-placeholder="-- Seleccionar --"
+        >
+          <option value="" selected disabled hidden>-- Seleccionar --</option>
+          <option *ngFor="let item of yesOrNot" [value]="item.value">
+            {{ item.name }}
+          </option>
+        </select>
+      </div>
+      <div class="input-form">
+        <label class="label-form">Nombre del guía / Guide's name </label>
+        <input type="text" formControlName="GuideName" />
+      </div>
+      <div class="w-100">
+        <button
+
+          type="submit"
+          class="w-90 btn-primary"
+        >
+          <span *ngIf="!loading">Guardar</span>
+          <div *ngIf="loading" class="spinner"></div>
+        </button>
+
+      </div>
+    </div>
+    <!-------------------------------------------------------------------->
+    <!-------------------------------------------------------------------->
+  </form>
+</div>
+<toastr></toastr>

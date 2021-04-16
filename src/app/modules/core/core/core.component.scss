@@ -1,0 +1,139 @@
+.container{
+  display: grid;
+  height: auto;
+  padding-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--ligth-bg-color);
+  background-repeat: repeat-y;
+  grid-template-columns: 220px 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "navbar content"
+                       "navbar content";
+}
+
+.container-mobile{
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding-bottom: 1rem !important;
+  min-height: 625px;
+  background-color: var(--ligth-bg-color);
+  background-repeat: repeat-y;
+  flex-direction: column;
+}
+
+.navbar{
+  grid-area: navbar;
+}
+
+.navbar-stick{
+  height: 40px;
+}
+
+.navbar-mobile{
+  position: absolute;
+  width: 220px !important;
+  height: 100vh;
+}
+
+.name-person{
+  font-size: 1.2rem !important;
+}
+
+.nav{
+  margin: 1rem 2rem 0;
+  height: calc(100vh - 2rem);
+  top: 0;
+  position: fixed;
+  min-height: 600px;
+  background: var(--main-bg-color);
+  border-radius: 15px;
+  width: 150px;
+  // position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-mobile{
+  margin: 0;
+  border-radius: 0px;
+  height: 200px;
+  height: 100%;
+}
+
+.content{
+  grid-area: content;
+  box-sizing: border-box;
+}
+
+.content-mobile{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.btn-toogle{
+  background: transparent;
+  border: 0px;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-logout{
+  background: transparent;
+  border: 0px;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--alert-color)
+}
+
+.app-render{
+  width: 98%;
+  min-height: 500px;
+  max-height: auto;
+  margin-top: 1rem;
+  background: var(--ligth-color);
+  border-radius: 20px;
+  -webkit-box-shadow: 8px 6px 15px -4px rgba(0,0,0,0.25);
+  box-shadow: 8px 6px 15px -4px rgba(0,0,0,0.25);
+}
+
+picture{
+  cursor: pointer;
+}
+
+.btn-disabled{
+  display: flex;
+  flex-direction: column;
+  color: var(--ligth-color);
+  font-family: worksans-semibold;
+  background: transparent;
+  border: 0px;
+  outline: none;
+  cursor: default;
+  align-items: center;
+  width: 150px !important;
+  padding: 1rem 0;
+  text-decoration: none;
+  label:first-child{
+    margin-top: 0.5rem;
+  }
+}
+
+//media querys
+@media screen and (max-width: 600px) {
+  .name-person{
+    font-size: .9rem !important;
+  }
+
+  .btn-logout{
+    font-size: .9rem;
+  }
+}

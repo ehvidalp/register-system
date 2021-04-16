@@ -1,0 +1,47 @@
+<div class="content d-flex f-column f-align-center f-j-center">
+  <img
+    src="assets/img/acatenango-logo-horizontal-white.svg"
+    alt="Volcan Acatenango"
+    width="300px"
+    class="mb-1 mt-2"
+  />
+  <h2 class="f-j-center ligth-color mb-2 font-worksans">Ingresar</h2>
+  <div class="w-50 text-center form">
+    <form>
+      <div class="input-dark">
+        <span class="text-left">Correo electrónico</span>
+        <input [formControl]="email" type="email" class="font-worksans" (keyup.enter)="onSubmit()"/>
+      </div>
+      <div class="message-validators">
+        <p
+          *ngIf="email.errors?.email && email.touched"
+          class="alert-color font-worksans"
+        >
+          *Correo electrónico inválido
+        </p>
+        <p
+          *ngIf="email.errors?.required && email.touched"
+          class="alert-color font-worksans mb-0"
+        >
+          *Campo requerido
+        </p>
+        <p *ngIf="errorMsg.length > 0" class="-mt-2 alert-color font-worksans m-0">
+          {{ errorMsg }}
+        </p>
+      </div>
+
+      <button
+        type="submit"
+        class="btn-dark font-worksans-bold mt-1"
+        (click)="onSubmit()"
+      >
+        <div *ngIf="loading" class="spinner-login "></div>
+        <span *ngIf="!loading">Entrar</span>
+      </button>
+    </form>
+  </div>
+</div>
+<div class="content-img text-center d-flex flex-row f-j-center">
+  <img src="assets/img/volcan-acatenango-logo.svg" width="200px" />
+  <img src="assets/img/logo-municipalidad.svg" width="200px" />
+</div>
